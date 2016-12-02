@@ -17,6 +17,6 @@
 			int primaryAddress = customer.getPrimaryAddress().getId();
 			addressService.deleteAddress(customer.getId(), primaryAddress.getId());
 			// interaction checks
-			Mockito.verify(dbService, never()).deleteDocument(customer.getPrimaryAddress().getId());
+			Mockito.verify(dbService, times(1)).deleteDocument(customer.getPrimaryAddress().getId());
 		}
 ```
